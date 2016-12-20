@@ -5,21 +5,16 @@
 
 This is a small utility to convert camel cased strings to snake case and back, except some defined words.
 
-## QBS Usage
-
-To replace the original toSnake and back algorithms for [https://github.com/coocood/qbs](https://github.com/coocood/qbs)
-you can easily use snaker:
-
-Import snaker
-```go
-import (
-  github.com/coocood/qbs
-  github.com/serenize/snaker
-)
+```
+package snaker // import "snaker"
 ```
 
-Register the snaker methods to qbs
-```go
-qbs.ColumnNameToFieldName = snaker.SnakeToCamel
-qbs.FieldNameToColumnName = snaker.CamelToSnake
+Package snaker provides methods to convert CamelCase names to snake_case and
+back. It considers the list of allowed initialsms used by
+github.com/golang/lint/golint (e.g. ID or HTTP)
+
 ```
+func CamelToSnake(s string) string
+func SnakeToCamel(s string) string
+```
+
